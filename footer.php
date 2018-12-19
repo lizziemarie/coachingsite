@@ -18,6 +18,9 @@
 			<div class="schedule-a-call">
 				<h2>Schedule a call</h2>
 				<p>Let's figure out what program is best for you and your needs</p>
+				<p>
+					<a class="" href="">BOOK YOUR FREE 15 MINUTE CALL</a>
+				</p>
 			</div>
 			<div class="subscribe-footer">
 				<h2>Subscribe</h2>

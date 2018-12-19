@@ -3,7 +3,7 @@
  * Template Name: Custom Stage
  * description: >-
  *  Page template without sidebar
- */
+ *
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -16,23 +16,20 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+      <?php $catquery = new WP_Query( 'cat=6&posts_per_page=3' ); ?>
+        <ul>
 
-			get_template_part( 'template-parts/content', 'page' );
+          <?php while($catquery->have_posts()) : $catquery->the_post(); ?>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
+            <li>
+              <a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a>
+            </li>
+          <?php endwhile;
+          wp_reset_postdata();
+          ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
